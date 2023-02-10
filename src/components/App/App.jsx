@@ -19,7 +19,7 @@ import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
-import AllTripsPage from '../AllTripsPage/AllTripsPageForm';
+import AllTripsPage from '../AllTripsPage/NewTripsPageForm';
 
 import './App.css';
 

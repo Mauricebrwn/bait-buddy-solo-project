@@ -15,9 +15,9 @@ function* catchFormSaga(action){
 
 }
 
-function* sagaForm() {
+function* catchForm() {
     yield takeLatest('NEW_CATCH_TO_POST', catchFormSaga)
 }
 
 
-export default CatchSagaForm; 
+export default catchForm; 

@@ -1,12 +1,9 @@
 import React, {useState} from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useHistory, useParams } from "react-router-dom";
 
 function NewTripPageForm(){
     const dispatch = useDispatch();
-    const user = useSelector((store) => store.user)
-    // const params = useParams();
-    // const useHistory = useHistory();
+    const trip = useSelector((store) => store.trip)
     const [newLakeName, setNewLakeName] = useState('')
     const [newDate, setNewDate ]= useState('')
     const [newIsComplete, setNewIsComplete] = useState('')
@@ -17,11 +14,11 @@ function NewTripPageForm(){
             lakeName: newLakeName,
             date: newDate,
             isComplete: newIsComplete,
-            user_id: user.id
+            trip_id: trip.id
         } 
         console.log('this is a new trip', newTrip);
         dispatch({
-            type:'NEW_TRIP_TO_POST',
+            type:'POST',
             payload: newTrip
         })
         setNewLakeName(''),

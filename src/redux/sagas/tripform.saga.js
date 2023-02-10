@@ -1,13 +1,13 @@
 import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
-function* itemFormSaga(action){
-    const item = action.payload
-    console.log('this is item', item);
-    const itemSent = yield axios({
+function* tripFormSaga(action){
+    const trip = action.payload
+    console.log('this is a trip', trip);
+    const tripSent = yield axios({
         method: 'POST',
         url:'/api/trip',
-        data: item
+        data: trip
     })
     yield put({
         type:'FETCH_TRIP'
@@ -16,7 +16,7 @@ function* itemFormSaga(action){
 }
 
 function* sagaForm() {
-    yield takeLatest('NEW_ITEM_TO_POST', itemFormSaga)
+    yield takeLatest('NEW_TRIP_TO_POST', tripFormSaga)
 }
 
 

@@ -1,28 +1,39 @@
-import AllTripsPageForm from './AllTripsPageForm'
+import AllTripsPageForm from './NewTripsPageForm'
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import useReduxStore from '../../hooks/useReduxStore';
-import TripItem from './TripItem';
 
-export default function tripPage() {
+function TripList() {
+
     const dispatch = useDispatch();
-    const trips = useSelector(store => store.tripReducer)
-    useEffect(() => {
-        dispatch({ type: 'FETCH_SHELF' });
-      }, [dispatch]);
+    const trips = useSelector(store => store.trip);
+    const history = useHistory();
 
-      return (
-        <div>
-            <h2>Trip</h2>
-            <AllTripsPageForm />
-            <p>All trips</p>
-        <div>
-        {trips.map((trip) => {
-            return(
-                <ul key={trip.id}></ul>
-            )
-        })}
-        </div>
-        </div>
-      )
+    useEffect(() => {
+        dispatch({ type: 'FETCH_TRIP' });
+    }, []);
+
+    const captureDetails= (trip) =>{
+        history.push(`/details/${trip.id}`)
+    }
+
+    return (
+        <main>
+        <h1>Trips</h1>
+        <section className="trips">
+            {trips.map(trip => {
+                return (
+                    <div className="trip"
+                    key={trip.id}>
+                        <h3>{trip.lake_name}</h3>
+                        <h3>{trip.date}</h3>
+
+                    </div>
+                )
+            })}
+        </section>
+        </main>
+    )
 }
+
+export default TripList;

@@ -20,6 +20,7 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import AllTripsPage from '../AllTripsPage/NewTripsPageForm';
+import CurrentTrip from '../CurrentTrip';
 
 import './App.css';
 
@@ -115,6 +116,12 @@ function App() {
           path="/trip"
           >
             <AllTripsPage/>
+          </ProtectedRoute>
+          <ProtectedRoute
+          exact
+          path="/currenttrip"
+          >
+            <CurrentTrip/>
           </ProtectedRoute>
           
 

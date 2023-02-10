@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 
 function NewTripPageForm(){
     const dispatch = useDispatch();
@@ -7,6 +8,12 @@ function NewTripPageForm(){
     const [newLakeName, setNewLakeName] = useState('')
     const [newDate, setNewDate ]= useState('')
     const [newIsComplete, setNewIsComplete] = useState('')
+    const history = useHistory();
+
+    const toCurrentTripPage = (event) => {
+        event.preventDefault();
+        history.push('/currenttrip')
+    }
 
     const addToTrip = (event) => {
         event.preventDefault();
@@ -30,7 +37,7 @@ function NewTripPageForm(){
         <form onSubmit={addToTrip}>
            <input type="text" value={newLakeName} onChange= {e=>setNewLakeName(e.target.value)} placeholder='Lake'/>
            <input type="date" value={newDate} onChange= {e=>setNewDate(e.target.value)} placeholder='date'/>
-           <button>Start Trip</button>        
+           <button onClick={toCurrentTripPage}>Start Trip</button>        
         </form>
         </>
     )

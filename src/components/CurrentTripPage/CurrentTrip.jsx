@@ -1,11 +1,13 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 
 function CurrentTrip(){
     const dispatch = useDispatch();
-    const trip = useSelector((store) => store.tripReducer)
+    const trip = useSelector((store) => store.trip)
     const history = useHistory();
+    const lastTrip = trip[trip.length-1]
+    console.log(lastTrip)
     const backToTripsPage = (event) => {
         event.preventDefault();
         history.push('/trip')
@@ -15,19 +17,17 @@ function CurrentTrip(){
         history.push('/catch')
     }
     console.log('this is the current trip', trip);
-    dispatch({
-        type:'FETCH_TRIP',
-        payload: trip
-    })
-    return(
-        <div>
-            <h1>Current Trip</h1>
-            {/* <p>{trip.date}</p>
-            <p>{trip.lake_name}</p> */}
-            <button onClick={backToTripsPage}>Done</button> 
-            <button onClick={catchPage}>Catch</button>        
-        </div>
+    useEffect(() => {
+        dispatch({ type: 'FETCH_TRIP' })
+    }, []);
+    
+    return (
+        <main>
+        <h1>Current Trip</h1>
+        <button onClick={backToTripsPage}>Done</button> 
+        <button onClick={catchPage}>Catch</button>
+        </main>
     )
 
 }
-export default CurrentTrip
+export default CurrentTrip;

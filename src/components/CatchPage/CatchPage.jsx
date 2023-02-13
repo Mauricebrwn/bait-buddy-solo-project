@@ -28,7 +28,7 @@ function NewCatchForm(){
         } 
         console.log('this is a new catch', newCatch);
         dispatch({
-            type:'POST',
+            type:'NEW_CATCH_TO_POST',
             payload: newCatch
         })
        setNewFish_type(''),
@@ -46,8 +46,10 @@ function NewCatchForm(){
            <input type="number" value={newFish_weight} onChange= {e=>setNewFish_weight(e.target.value)} placeholder= 'Fish Weight'/>
            <input type="text" value={newLure_bait} onChange= {e=>setNewLure_bait(e.target.value)} placeholder= 'Lure/ bait'/>
            <input type="time" value={newTime} onChange= {e=>setNewTime(e.target.value)} placeholder= 'time'/>
-           <button onClick={toCurrentTripPage}>Add Catch</button>        
+           <button onClick={addToCatch}>Add Catch</button>        
         </form>
+
+        {/* <button onClick={toCurrentTripPage}>Add Catch</button> */}
         </div>
     )
 

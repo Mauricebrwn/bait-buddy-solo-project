@@ -5,7 +5,7 @@ import TripList from "./TripPage.jsx";
 
 function NewTripPageForm(){
     const dispatch = useDispatch();
-    const trip = useSelector((store) => store.tripReducer)
+    const trip = useSelector((store) => store.trip)
     const [newLakeName, setNewLakeName] = useState('')
     const [newDate, setNewDate ]= useState('')
     const [newIsComplete, setNewIsComplete] = useState('')

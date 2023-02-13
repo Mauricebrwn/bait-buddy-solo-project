@@ -7,7 +7,7 @@ function* catchFormSaga(action){
     const catchSent = yield axios({
         method: 'POST',
         url:'/api/catch',
-        data: trip
+        data: fishCatch
     })
     yield put({
         type:'FETCH_CATCH'

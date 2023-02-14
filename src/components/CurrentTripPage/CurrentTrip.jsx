@@ -16,7 +16,7 @@ function CurrentTrip(){
         event.preventDefault();
         history.push('/catch')
     }
-    console.log('this is the current trip', trip);
+    console.log('this is the current trip', lastTrip);
     useEffect(() => {
         dispatch({ type: 'FETCH_TRIP' })
     }, []);

@@ -19,12 +19,10 @@ function NewTripPageForm(){
     const addToTrip = (event) => {
         event.preventDefault();
         let newTrip ={
-            lakeName: newLakeName,
+            lake_name: newLakeName,
             date: newDate,
-            isComplete: newIsComplete,
-            trip_id: trip.id
+            is_complete: false,
         } 
-        console.log('this is a new trip', newTrip);
         dispatch({
             type:'NEW_TRIP_TO_POST',
             payload: newTrip
@@ -37,8 +35,8 @@ function NewTripPageForm(){
         <>
         <form onSubmit={addToTrip}>
            <input type="text" value={newLakeName} onChange= {e=>setNewLakeName(e.target.value)} placeholder='Lake'/>
-           <input type="date" value={newDate} onChange= {e=>setNewDate(e.target.value)} placeholder='date'/>
-           <button onClick={toCurrentTripPage}>Start Trip</button>        
+           <input type="date" value={newDate} onChange= {e=>setNewDate(e.target.value)} placeholder='Date'/>
+           <button onClick={addToTrip}>Start Trip</button>        
         </form>
         <TripList />
         </>

@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 
 function NewCatchForm(){
     const dispatch = useDispatch();
-    const catchReducer = useSelector((store) => store.catchReducer)
+    const catches = useSelector((store) => store.catchReducer)
     const [newFish_type, setNewFish_type] = useState('')
     const [newFish_length, setNewFish_length] = useState('')
     const [newFish_weight, setNewFish_weight] = useState('')
@@ -28,7 +28,7 @@ function NewCatchForm(){
         } 
         console.log('this is a new catch', newCatch);
         dispatch({
-            type:'NEW_CATCH_TO_POST',
+            type:'SET_CATCH',
             payload: newCatch
         })
        setNewFish_type(''),

@@ -9,7 +9,7 @@ function TripList() {
     const store = useReduxStore();
     const trip = useSelector(store => store.trip);
     console.log(trip)
-
+    
     useEffect(() => {
         dispatch({ type: 'FETCH_TRIP' });
     }, []);

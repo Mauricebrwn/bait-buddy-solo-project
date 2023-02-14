@@ -5,6 +5,7 @@ import userSaga from './user.saga';
 import tripSaga from './trip.saga';
 import sagaForm from './tripform.saga';
 import catchFormSaga from './catchform.saga';
+import catchSaga from './catch.saga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -20,6 +21,7 @@ export default function* rootSaga() {
     userSaga(),
     tripSaga(),
     sagaForm(),
-    catchFormSaga()
+    catchFormSaga(),
+    catchSaga(),
   ]);
 }

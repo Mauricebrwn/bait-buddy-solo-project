@@ -1,9 +1,11 @@
-
+import NewTripPageForm from './NewTripsPageForm';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import useReduxStore from '../../hooks/useReduxStore';
+import Trip from './TripItem';
 
-function TripList() {
+
+export default function TripList() {
 
     const dispatch = useDispatch();
     const store = useReduxStore();
@@ -14,24 +16,17 @@ function TripList() {
         dispatch({ type: 'FETCH_TRIP' });
     }, []);
 
-
     return (
-        <main>
+        <div className="trips">
         <h2>Trips</h2>
-        <section className="trips">
-            {trip.map(trip => {
+        <NewTripPageForm/>
+        <div>
+            {trip.map((trip) => {
                 return (
-                    <div className="trip"
-                    key={trip.id}>
-                        <p>{trip.lake_name}</p>
-                        <p>{trip.date}</p>
-
-                    </div>
+                   <ul key={trip.id}><Trip trip={trip}/></ul>
                 )
             })}
-        </section>
-        </main>
+        </div>
+        </div>
     )
 }
-
-export default TripList;

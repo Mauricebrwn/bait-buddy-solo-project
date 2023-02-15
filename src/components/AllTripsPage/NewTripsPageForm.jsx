@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import TripList from "./TripPage.jsx";
 
 function NewTripPageForm(){
     const dispatch = useDispatch();
@@ -36,9 +35,8 @@ function NewTripPageForm(){
         <form onSubmit={addToTrip}>
            <input type="text" value={newLakeName} onChange= {e=>setNewLakeName(e.target.value)} placeholder='Lake'/>
            <input type="date" value={newDate} onChange= {e=>setNewDate(e.target.value)} placeholder='Date'/>
-           <button onClick={addToTrip}>Start Trip</button>        
+           <button>Start Trip</button>        
         </form>
-        <TripList />
         </>
     )
 }

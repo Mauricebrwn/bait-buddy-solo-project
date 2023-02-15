@@ -19,11 +19,11 @@ import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
-import AllTripsPage from '../AllTripsPage/NewTripsPageForm';
+import TripPage from '../AllTripsPage/TripPage'
 import CurrentTrip from '../CurrentTripPage/CurrentTrip';
+import CatchPage from '../CatchPage/CatchPage'
 
 import './App.css';
-import NewCatchForm from '../CatchPage/CatchPage';
 
 function App() {
   const dispatch = useDispatch();
@@ -116,7 +116,7 @@ function App() {
           exact
           path="/trip"
           >
-            <AllTripsPage/>
+            <TripPage/>
           </ProtectedRoute>
           <ProtectedRoute
           exact
@@ -128,7 +128,7 @@ function App() {
           exact
           path="/catch"
           >
-            <NewCatchForm/>
+            <CatchPage/>
           </ProtectedRoute>
           
 

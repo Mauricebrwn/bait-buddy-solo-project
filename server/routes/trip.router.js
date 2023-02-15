@@ -34,4 +34,19 @@ router.post('/', (req, res) => {
   });
 });
 
+router.delete('/:id', (req, res) => {
+  const id = req.params.id
+  let sqlQuery = `
+  DELETE FROM "trip"
+  WHERE id = $1;
+  `
+  const sqlVal = [id]
+  pool.query(sqlQuery, sqlVal)
+  .then((dbRes) => {res.sendStatus(200)})
+    .catch((error) => {
+      console.log('Error making DELETE from trip:', error);
+      res.sendStatus(500);
+    }); 
+});
+
   module.exports = router;

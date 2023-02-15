@@ -27,6 +27,14 @@ function Nav() {
             <Link className="navLink" to="/user">
               Home
             </Link>
+            
+            <Link className="navLink" to="/trip">
+            Add Trip
+            </Link>
+
+            <Link className="navLink" to="/catch">
+            Add Catch
+            </Link>
 
             <Link className="navLink" to="/info">
               Info Page
@@ -40,9 +48,7 @@ function Nav() {
           About
         </Link>
 
-        <Link className="navLink" to="/trip">
-          Add Trip
-        </Link>
+        
       </div>
     </div>
   );

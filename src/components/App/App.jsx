@@ -61,9 +61,9 @@ function App() {
           <ProtectedRoute
             // logged in shows UserPage else shows LoginPage
             exact
-            path="/trip"
+            path="/user"
           >
-            <TripPage />
+            <UserPage />
           </ProtectedRoute>
 
           <ProtectedRoute

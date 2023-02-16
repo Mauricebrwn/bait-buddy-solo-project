@@ -11,6 +11,7 @@ const handleDelete = () =>{
        payload: currenttrip.id
     })
    }
+   console.log(idOfTripToGet)
   
    return(
         <li>

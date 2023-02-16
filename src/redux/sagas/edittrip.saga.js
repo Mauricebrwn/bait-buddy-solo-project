@@ -3,7 +3,7 @@ import { put, takeLatest } from 'redux-saga/effects';
 
 function* fetchTripToEdit(action) {
     const idOfTripToEdit = action.payload;
-    
+    console.log(idOfTripToEdit)
     const response = yield axios({
       method: 'GET',
       url: `/api/trip/${idOfTripToEdit}`

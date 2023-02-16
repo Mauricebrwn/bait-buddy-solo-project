@@ -43,7 +43,7 @@ function NewCatchForm(){
            <input type="text" value={newFish_type} onChange= {e=>setNewFish_type(e.target.value)} placeholder= 'Fish Type'/>
            <input type="number" value={newFish_length} onChange= {e=>setNewFish_length(e.target.value)} placeholder= 'Fish Length'/>
            <input type="number" value={newFish_weight} onChange= {e=>setNewFish_weight(e.target.value)} placeholder= 'Fish Weight'/>
-           <input type="text" value={newLure_bait} onChange= {e=>setNewLure_bait(e.target.value)} placeholder= 'Lure/ bait'/>
+           <input type="text" value={newLure_bait} onChange= {e=>setNewLure_bait(e.target.value)} placeholder= 'Lure/ Bait'/>
            <input type="datetime-local" value={newTime} onChange= {e=>setNewTime(e.target.value)} placeholder= 'time'/>
            <button>Add Catch</button>        
         </form>

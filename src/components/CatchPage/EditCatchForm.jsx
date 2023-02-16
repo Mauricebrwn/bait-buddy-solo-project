@@ -14,7 +14,7 @@ function EditCatchForm() {
     
     console.log('params.id should work, let us make sure!', params.id)
     dispatch({
-      type: 'FETCH_CATCH_TO_EDIT',
+      type: 'PUT_CATCH',
       payload: params.id
     })
   }, [])
@@ -53,7 +53,7 @@ function EditCatchForm() {
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch({
-      type: 'SET_CATCH_TO_EDIT',
+      type: 'NEW_CATCH_TO_PUT',
       payload: catchToEdit
     })
     history.push('/catch');
@@ -69,21 +69,25 @@ function EditCatchForm() {
             type="text"
             value={catchToEdit.fish_type || ''}
             onChange={handleCatchNameChange}
+            placeholder= 'Fish Type'
         />
         <input 
             type="number"
             value={catchToEdit.fish_length || ''}
             onChange={handleCatchLengthChange}
+            placeholder= 'Fish Length'
         />
         <input 
             type="number"
             value={catchToEdit.fish_weight || ''}
             onChange={handleCatchWeightChange}
+            placeholder= 'Fish Weight'
         />
         <input 
             type="text"
             value={catchToEdit.lure_bait || ''}
             onChange={handleCatchLureChange}
+            placeholder= 'Lure/ Bait'
         />
         <input 
             type="datetime-local"

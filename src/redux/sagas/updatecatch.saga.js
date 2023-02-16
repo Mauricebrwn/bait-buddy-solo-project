@@ -5,7 +5,7 @@ function* updateCatch(action) {
     const editedCatch = action.payload;
     yield axios({
       method: 'PUT',
-      url: `/catch/${editedCatch.id}`,
+      url: `/api/catch/${editedCatch.id}`,
       data: editedCatch,
     })
     yield put({

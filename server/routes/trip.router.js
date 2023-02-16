@@ -71,8 +71,8 @@ router.put('/:id', (req, res) => {
   const idToUpdate = req.params.id;
   const sqlText = `
     UPDATE "trip"
-      SET lake_name=$1, date=$2, is_complete=$3
-      WHERE id=$4,$5,$6
+      SET "lake_name"=$1, "date"=$2, is_complete=$3
+      WHERE id=$4
   `;
   pool.query(sqlText, [req.body.lake_name,req.body.date, req.body.is_complete, idToUpdate])
       .then((result) => {

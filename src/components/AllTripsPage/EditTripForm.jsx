@@ -14,7 +14,7 @@ function EditTripForm() {
     
     console.log('params.id should work, let us make sure!', params.id)
     dispatch({
-      type: 'FETCH_TRIP_TO_EDIT',
+      type: 'PUT_TRIP',
       payload: params.id
     })
   }, [])
@@ -35,10 +35,11 @@ function EditTripForm() {
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch({
-      type: 'SET_TRIP_TO_EDIT',
+      type: 'NEW_TRIP_TO_PUT',
       payload: tripToEdit
     })
     history.push('/trip');
+    console.log(tripToEdit)
   }
 
   return (
@@ -51,6 +52,7 @@ function EditTripForm() {
           type="text"
           value={tripToEdit.lake_name || ''}
           onChange={handleTripNameChange}
+          placeholder='Lake'
         />
         <input 
           type="date"

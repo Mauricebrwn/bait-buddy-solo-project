@@ -5,7 +5,7 @@ function* updateTrip(action) {
     const editedTrip = action.payload;
     yield axios({
       method: 'PUT',
-      url: `/trip/${editedTrip.id}`,
+      url: `/api/trip/${editedTrip.id}`,
       data: editedTrip,
     })
     yield put({

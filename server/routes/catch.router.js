@@ -70,7 +70,7 @@ router.put('/:id', (req, res) => {
   const sqlText = `
     UPDATE "catch"
       SET fish_type=$1, fish_length=$2, fish_weight=$3, lure_bait=$4, time=$5
-      WHERE id=$6,$7,$8,$9,$10
+      WHERE id=$6
   `;
   pool.query(sqlText, [req.body.fish_type, req.body.fish_length, req.body.fish_weight, req.body.lure_bait, req.body.time, idToUpdate])
       .then((result) => {

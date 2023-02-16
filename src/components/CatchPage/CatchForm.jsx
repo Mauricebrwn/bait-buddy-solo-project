@@ -1,6 +1,8 @@
 import React, {useState} from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
+import { TextField, Button } from "@mui/material";
+
 
 function NewCatchForm(){
     const dispatch = useDispatch();
@@ -40,12 +42,12 @@ function NewCatchForm(){
     return(
         <div>
         <form onSubmit={addToCatch}>
-           <input type="text" value={newFish_type} onChange= {e=>setNewFish_type(e.target.value)} placeholder= 'Fish Type'/>
-           <input type="number" value={newFish_length} onChange= {e=>setNewFish_length(e.target.value)} placeholder= 'Fish Length'/>
-           <input type="number" value={newFish_weight} onChange= {e=>setNewFish_weight(e.target.value)} placeholder= 'Fish Weight'/>
-           <input type="text" value={newLure_bait} onChange= {e=>setNewLure_bait(e.target.value)} placeholder= 'Lure/ Bait'/>
-           <input type="datetime-local" value={newTime} onChange= {e=>setNewTime(e.target.value)} placeholder= 'time'/>
-           <button>Add Catch</button>        
+           <TextField size="small" id="outlined-basic" label="Fish Type" variant="outlined" type="text" value={newFish_type} onChange= {e=>setNewFish_type(e.target.value)}/>
+           <TextField size="small" id="outlined-basic" label="Fish Length" variant="outlined" type="number" value={newFish_length} onChange= {e=>setNewFish_length(e.target.value)}/>
+           <TextField size="small" id="outlined-basic" label="Fish Weight" variant="outlined" type="number" value={newFish_weight} onChange= {e=>setNewFish_weight(e.target.value)}/>
+           <TextField size="small" id="outlined-basic" label="Lure/ Bait" variant="outlined" type="text" value={newLure_bait} onChange= {e=>setNewLure_bait(e.target.value)}/>
+           <TextField size="small" id="outlined-basic" variant="outlined" type="datetime-local" value={newTime} onChange= {e=>setNewTime(e.target.value)}/>
+           <Button onClick={addToCatch} size= "medium" variant="outlined">Add Catch</Button>        
         </form>
 
         {/* <button onClick={toCurrentTripPage}>Add Catch</button> */}

@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
+import Button from '@mui/material/Button';
+import { TextField } from "@mui/material";
 
 function EditTripForm() {
 
@@ -44,22 +46,22 @@ function EditTripForm() {
 
   return (
 
-    <div>
+    <div className="edit">
       <h2>Edit Trip:</h2>
 
       <form>
-        <input 
+        <TextField size="small" id="outlined-basic" label="Lake" variant="outlined" 
           type="text"
           value={tripToEdit.lake_name || ''}
           onChange={handleTripNameChange}
           placeholder='Lake'
         />
-        <input 
-          type="date"
+        <TextField size="small" id="outlined-basic" variant="outlined" 
+          type="datetime-local"
           value={tripToEdit.date || ''}
           onChange={handleDateChange}
         />
-        <button onClick={handleSubmit}>Submit</button>
+        <Button onClick={handleSubmit} size= "medium" variant="outlined">Submit</Button>
       </form>
     </div>
   )

@@ -1,5 +1,7 @@
 import { useDispatch, useSelector } from "react-redux"
 import { useHistory } from "react-router-dom"
+import Button from '@mui/material/Button';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 function Trip({trip}) {
 const user = useSelector(store => store.user)
@@ -20,8 +22,10 @@ const goToEditPage = () => {
             <p>{trip.lake_name}</p>
             <p>{trip.date}</p>
             </div>
-            <button onClick={handleDelete}>Delete</button>
-            <button onClick={goToEditPage}>Edit</button>
+            <Button onClick={handleDelete} variant="outlined" startIcon={<DeleteIcon />}>
+            Delete
+            </Button>
+            <Button size= "medium" variant="outlined" onClick={goToEditPage}>Edit</Button>
         </li>
    )
 }

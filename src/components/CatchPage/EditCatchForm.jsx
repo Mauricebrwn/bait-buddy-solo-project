@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
+import { TextField, Button } from "@mui/material";
 
 function EditCatchForm() {
 
@@ -61,40 +62,36 @@ function EditCatchForm() {
 
   return (
 
-    <div>
+    <div className="edit">
       <h2>Edit Catch:</h2>
 
       <form>
-        <input 
+        <TextField size="small" id="outlined-basic" label="Fish Type" variant="outlined" 
             type="text"
             value={catchToEdit.fish_type || ''}
             onChange={handleCatchNameChange}
-            placeholder= 'Fish Type'
         />
-        <input 
+        <TextField size="small" id="outlined-basic" label="Fish Length" variant="outlined" 
             type="number"
             value={catchToEdit.fish_length || ''}
             onChange={handleCatchLengthChange}
-            placeholder= 'Fish Length'
         />
-        <input 
+        <TextField size="small" id="outlined-basic" label="Fish Weight" variant="outlined" 
             type="number"
             value={catchToEdit.fish_weight || ''}
             onChange={handleCatchWeightChange}
-            placeholder= 'Fish Weight'
         />
-        <input 
+        <TextField size="small" id="outlined-basic" label="Lure/ Bait" variant="outlined" 
             type="text"
             value={catchToEdit.lure_bait || ''}
             onChange={handleCatchLureChange}
-            placeholder= 'Lure/ Bait'
         />
-        <input 
+        <TextField size="small" id="outlined-basic" variant="outlined"
             type="datetime-local"
             value={catchToEdit.time || ''}
             onChange={handleCatchTimeChange}
         />
-        <button onClick={handleSubmit}>Submit</button>
+        <Button size= "medium" variant="outlined" onClick={handleSubmit}>Submit</Button>
       </form>
     </div>
   )

@@ -1,5 +1,7 @@
 import { useDispatch, useSelector } from "react-redux"
 import { useHistory } from "react-router-dom"
+import Button from '@mui/material/Button';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 function Catch({fishcatch}) {
     const user = useSelector(store => store.user)
@@ -24,8 +26,10 @@ function Catch({fishcatch}) {
             <p>Lure/Bait used: {fishcatch.lure_bait}</p>
             <p>Date/Time: {fishcatch.time}</p>
             </div>
-            <button onClick={handleCatchDelete}>Delete</button>
-            <button onClick={goToEditPage}>Edit</button>
+            <Button onClick={handleCatchDelete} variant="outlined" startIcon={<DeleteIcon />}>
+            Delete
+            </Button>
+            <Button size= "medium" variant="outlined" onClick={goToEditPage}>Edit</Button>
         </>
     )
 }

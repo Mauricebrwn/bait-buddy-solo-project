@@ -1,6 +1,8 @@
 import React, {useState} from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
+import { TextField, Button } from "@mui/material";
+
 
 function NewTripPageForm(){
     const dispatch = useDispatch();
@@ -31,9 +33,9 @@ function NewTripPageForm(){
     return(
         <>
         <form onSubmit={addToTrip}>
-           <input type="text" value={newLakeName} onChange= {e=>setNewLakeName(e.target.value)} placeholder='Lake'/>
-           <input type="date" value={newDate} onChange= {e=>setNewDate(e.target.value)} placeholder='Date'/>
-           <button>Start Trip</button>        
+           <TextField size="small" id="outlined-basic" label="Lake" variant="outlined"type="text" value={newLakeName} onChange= {e=>setNewLakeName(e.target.value)}/>
+           <TextField size="small" id="outlined-basic" variant="outlined" type="datetime-local" value={newDate} onChange= {e=>setNewDate(e.target.value)} placeholder='Date'/>
+           <Button onClick={addToTrip} size= "medium" variant="outlined">Start Trip</Button>        
         </form>
         </>
     )

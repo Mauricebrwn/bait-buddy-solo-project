@@ -8,6 +8,11 @@ import catchFormSaga from './catchform.saga';
 import catchSaga from './catch.saga';
 import deleteSaga from './delete.saga';
 import deleteCatchSaga from './deletecatch.saga';
+import fetchTripToEditSaga from './edittrip.saga';
+import fetchCatchToEditSaga from './editcatch.saga';
+import updatedTripSaga from './updatetrip.saga';
+import updatedCatchSaga from './updatecatch.saga';
+
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -27,5 +32,9 @@ export default function* rootSaga() {
     catchSaga(),
     deleteSaga(),
     deleteCatchSaga(),
+    fetchTripToEditSaga(),
+    fetchCatchToEditSaga(),
+    updatedTripSaga(),
+    updatedCatchSaga(),
   ]);
 }

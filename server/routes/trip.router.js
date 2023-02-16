@@ -18,6 +18,24 @@ router.get('/', rejectUnauthenticated, (req, res) => {
     })
 
 });
+
+router.get('/:id', (req, res) => {
+  const idOfTripToGet = req.params.id;
+  const sqlText = `
+    SELECT * FROM "trip"
+      WHERE "id"=$1;
+  `
+  const sqlValues = [idOfTripToGet];
+  pool.query(sqlText, sqlValues)
+    .then((dbRes) => {
+      res.send(dbRes.rows[0])
+    })
+    .catch((dbErr) => {
+      console.log('error getting individual trip', dbErr);
+      res.sendStatus(500);
+    })
+})
+
 router.post('/', (req, res) => {
   console.log(req.body);
   const insertTripQuery= `
@@ -47,6 +65,23 @@ router.delete('/:id', (req, res) => {
       console.log('Error making DELETE from trip:', error);
       res.sendStatus(500);
     }); 
+});
+
+router.put('/:id', (req, res) => {
+  const idToUpdate = req.params.id;
+  const sqlText = `
+    UPDATE "trip"
+      SET lake_name=$1, date=$2, is_complete=$3
+      WHERE id=$4,$5,$6
+  `;
+  pool.query(sqlText, [req.body.lake_name,req.body.date, req.body.is_complete, idToUpdate])
+      .then((result) => {
+          res.sendStatus(200);
+      })
+      .catch((error) => {
+          console.log(`Error making database query ${sqlText}`, error);
+          res.sendStatus(500);
+      });
 });
 
   module.exports = router;

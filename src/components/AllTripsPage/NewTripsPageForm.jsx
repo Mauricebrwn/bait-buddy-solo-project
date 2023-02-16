@@ -10,10 +10,6 @@ function NewTripPageForm(){
     const [newIsComplete, setNewIsComplete] = useState('')
     const history = useHistory();
 
-    const toCurrentTripPage = (event) => {
-        event.preventDefault();
-        history.push('/currenttrip')
-    }
 
     const addToTrip = (event) => {
         event.preventDefault();
@@ -29,6 +25,8 @@ function NewTripPageForm(){
         setNewLakeName(''),
         setNewDate(''),
         setNewIsComplete('')
+
+        history.push('/currenttrip')
     }
     return(
         <>

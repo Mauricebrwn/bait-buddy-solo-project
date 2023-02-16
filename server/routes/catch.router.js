@@ -18,6 +18,22 @@ router.get('/', rejectUnauthenticated, (req, res) => {
       })
   
   });
+  router.get('/:id', (req, res) => {
+    const idOfCatchToGet = req.params.id;
+    const sqlText = `
+      SELECT * FROM "catch"
+        WHERE "id"=$1;
+    `
+    const sqlValues = [idOfCatchToGet];
+    pool.query(sqlText, sqlValues)
+      .then((dbRes) => {
+        res.send(dbRes.rows[0])
+      })
+      .catch((dbErr) => {
+        console.log('error getting individual catch', dbErr);
+        res.sendStatus(500);
+      })
+  })
 router.post('/', (req, res) => {
     console.log(req.body);
     const insertCatchQuery= `
@@ -47,6 +63,23 @@ router.delete('/:id', (req, res) => {
       console.log('Error making DELETE from catch:', error);
       res.sendStatus(500);
     }); 
+});
+
+router.put('/:id', (req, res) => {
+  const idToUpdate = req.params.id;
+  const sqlText = `
+    UPDATE "catch"
+      SET fish_type=$1, fish_length=$2, fish_weight=$3, lure_bait=$4, time=$5
+      WHERE id=$6,$7,$8,$9,$10
+  `;
+  pool.query(sqlText, [req.body.fish_type, req.body.fish_length, req.body.fish_weight, req.body.lure_bait, req.body.time, idToUpdate])
+      .then((result) => {
+          res.sendStatus(200);
+      })
+      .catch((error) => {
+          console.log(`Error making database query ${sqlText}`, error);
+          res.sendStatus(500);
+      });
 });
 
 

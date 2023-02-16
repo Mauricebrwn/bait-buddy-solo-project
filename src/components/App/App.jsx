@@ -22,6 +22,9 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 import TripPage from '../AllTripsPage/TripPage'
 import CurrentTrip from '../CurrentTripPage/CurrentTrip';
 import CatchPage from '../CatchPage/CatchPage'
+import EditTripForm from '../AllTripsPage/EditTripForm';
+import EditCatchForm from '../CatchPage/EditCatchForm';
+
 
 import './App.css';
 
@@ -129,6 +132,18 @@ function App() {
           path="/catch"
           >
             <CatchPage/>
+          </ProtectedRoute>
+          <ProtectedRoute
+          exact
+          path="/trip/edit/:id"
+          >
+            <EditTripForm/>
+          </ProtectedRoute>
+          <ProtectedRoute
+          exact
+          path="/catch/edit/:id"
+          >
+            <EditCatchForm/>
           </ProtectedRoute>
           
 

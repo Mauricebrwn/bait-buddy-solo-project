@@ -3,7 +3,7 @@ import { put, takeLatest } from 'redux-saga/effects';
 
 function* fetchCatchToEdit(action) {
     const idOfCatchToEdit = action.payload;
-    
+
     const response = yield axios({
       method: 'GET',
       url: `/api/catch/${idOfCatchToEdit}`

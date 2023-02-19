@@ -39,14 +39,23 @@ function NewCatchForm(){
        setNewLure_bait(''),
        setNewTime('')
     }
+
+    const fillForm = () => {
+        setNewFish_type('Largemouth Bass');
+        setNewFish_length('16');
+        setNewFish_weight('2.25');
+        setNewLure_bait('Shiner');
+        setNewTime('2023-02-20T11:28:00.000')
+    }
     return(
         <div>
+            <h2 onClick={fillForm}>Catches</h2>
         <form onSubmit={addToCatch}>
-           <TextField size="small" id="outlined-basic" label="Fish Type" variant="outlined" type="text" value={newFish_type} onChange= {e=>setNewFish_type(e.target.value)}/>
-           <TextField size="small" id="outlined-basic" label="Fish Length" variant="outlined" type="number" value={newFish_length} onChange= {e=>setNewFish_length(e.target.value)}/>
-           <TextField size="small" id="outlined-basic" label="Fish Weight" variant="outlined" type="number" value={newFish_weight} onChange= {e=>setNewFish_weight(e.target.value)}/>
-           <TextField size="small" id="outlined-basic" label="Lure/ Bait" variant="outlined" type="text" value={newLure_bait} onChange= {e=>setNewLure_bait(e.target.value)}/>
-           <TextField size="small" id="outlined-basic" variant="outlined" type="datetime-local" value={newTime} onChange= {e=>setNewTime(e.target.value)}/>
+           <TextField size="small" id="Fish Type" label="Fish Type" variant="outlined" type="text" value={newFish_type} onChange= {e=>setNewFish_type(e.target.value)}/>
+           <TextField size="small" id="Fish Length" label="Fish Length" variant="outlined" type="number" value={newFish_length} onChange= {e=>setNewFish_length(e.target.value)}/>
+           <TextField size="small" id="Fish Weight" label="Fish Weight" variant="outlined" type="number" value={newFish_weight} onChange= {e=>setNewFish_weight(e.target.value)}/>
+           <TextField size="small" id="Lure/ Bait" label="Lure/ Bait" variant="outlined" type="text" value={newLure_bait} onChange= {e=>setNewLure_bait(e.target.value)}/>
+           <TextField size="small" id="Time" variant="outlined" type="datetime-local" value={newTime} onChange= {e=>setNewTime(e.target.value)}/>
            <Button onClick={addToCatch} size= "medium" variant="outlined">Add Catch</Button>        
         </form>
 

@@ -1,23 +1,21 @@
 import { useDispatch, useSelector } from "react-redux"
 import { useHistory } from "react-router-dom"
+import React, { useEffect } from 'react';
 
 function CurrentTripItem({currenttrip}) {
-const user = useSelector(store => store.user)
+const trip = useSelector(store => store.trip);
 const dispatch = useDispatch()
 const history = useHistory()
-const handleDelete = () =>{
-    dispatch({
-       type: 'DELETE_TRIP',
-       payload: currenttrip.id
-    })
-   }
-   console.log(idOfTripToGet)
-  
+useEffect(() => {
+    dispatch({ type: 'FETCH_TRIP' });
+}, []);
+
+  console.log(trip)
    return(
         <li>
-        <div key={currenttrip.id}>
-        <p>{currenttrip.lake_name}</p>
-        <p>{currenttrip.date}</p>
+        <div key={trip}>
+        <p></p>
+        {/* <p>{trip.date}</p> */}
             </div>
         </li>
    )

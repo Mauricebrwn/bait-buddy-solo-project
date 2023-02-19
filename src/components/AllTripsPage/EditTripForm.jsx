@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import Button from '@mui/material/Button';
 import { TextField } from "@mui/material";
+import moment from "moment";
 
 function EditTripForm() {
 
@@ -41,13 +42,12 @@ function EditTripForm() {
       payload: tripToEdit
     })
     history.push('/trip');
-    console.log(tripToEdit)
   }
 
   return (
 
     <div className="edit">
-      <h2>Edit Trip:</h2>
+      <h2>Edit Trip</h2>
 
       <form>
         <TextField size="small" id="outlined-basic" label="Lake" variant="outlined" 
@@ -57,7 +57,7 @@ function EditTripForm() {
           placeholder='Lake'
         />
         <TextField size="small" id="outlined-basic" variant="outlined" 
-          type="datetime-local"
+          type="date"
           value={tripToEdit.date || ''}
           onChange={handleDateChange}
         />

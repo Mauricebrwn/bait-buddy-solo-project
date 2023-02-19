@@ -26,6 +26,7 @@ const catchToEdit = (state = {}, action) => {
       return action.payload; 
     } else if (action.type === 'SET_TIME') {
      const newCatchTimeValue = action.payload;
+     console.log(newCatchTimeValue)
       return {...state, time: newCatchTimeValue}
     }
     return state;

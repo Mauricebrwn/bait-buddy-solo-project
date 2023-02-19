@@ -10,15 +10,18 @@ function AboutPage() {
     <div className="container">
       <h2>Technologies Used</h2>
       <div>
+        <img className='linkeIn' src='/images/linkedIn.JPG'></img>
         <ul>
           <li>Node</li>
           <li>Axios</li>
           <li>React</li>
           <li>Redux</li>
+          <li>Sagas</li>
           <li>Express</li>
           <li>Postgress</li>
           <li>SQL</li>
           <li>Body-Parser</li>
+          <li>Moment</li>
           <li>MUI</li>
         </ul>
       <h3>Thanks to!</h3>

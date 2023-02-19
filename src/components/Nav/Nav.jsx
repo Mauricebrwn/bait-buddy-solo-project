@@ -10,7 +10,7 @@ function Nav() {
   return (
     <div className="nav">
       <Link to="/home">
-        <h2 className="nav-title">Bait Buddy</h2>
+        <img src='/images/baitBuddyLogo.png'></img> 
       </Link>
       <div>
         {/* If no user is logged in, show these links */}
@@ -24,10 +24,6 @@ function Nav() {
         {/* If a user is logged in, show these links */}
         {user.id && (
           <>
-            <Link className="navLink" to="/user">
-              Home
-            </Link>
-            
             <Link className="navLink" to="/trip">
             Add Trip
             </Link>

@@ -10,7 +10,6 @@ export default function TripList() {
     const dispatch = useDispatch();
     const store = useReduxStore();
     const trip = useSelector(store => store.trip);
-    console.log(trip)
     
     useEffect(() => {
         dispatch({ type: 'FETCH_TRIP' });
@@ -23,7 +22,7 @@ export default function TripList() {
         <div>
             {trip.map((trip) => {
                 return (
-                   <ul key={trip.id}><Trip trip={trip}/></ul>
+                   <div key={trip.id}><Trip trip={trip}/></div>
                 )
             })}
         </div>

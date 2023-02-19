@@ -16,7 +16,6 @@ export default function CatchList(){
 
     return (
         <div className="catches">
-        <h2>Catches</h2>
         <NewCatchForm/>
         <div>
             {fishcatch.map((fishcatch) =>{
